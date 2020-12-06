@@ -1,0 +1,43 @@
+/* 
+css selector: 
+#id
+.classname
+*: Select all elements, and set their background color to yellow: 
+*/
+.li-ca  {
+    color: red
+}
+
+/* 
+selector1 selector2: 
+第一个variable里后代里所有满足第二个元素的内容 
+*/
+
+.li-ca2 li {
+    color: purple
+}
+
+/* 
+selector1 selector2: 
+第一个variable里后代里所有满足第二个元素的内容 
+*/
+.li-ca2 > ul > .child {
+    color: orange
+}
+
+/* pseudo class */
+.grandchild:hover {
+    color: red
+}
+
+
+/* pseudo element */
+.grandchild::hover {
+    color: red
+}
+
+/* box 属性 */
+.first {
+    border: solid 5px red
+}
+

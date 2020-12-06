@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML test</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+    </head>
+    <body>
+        <header>
+            Amazon: setting, navigate to wholefoods
+            
+        </header>
+
+        <h1 style = “color:blue;”>This is a heading</h1>
+        
+
+        <!-- 这里用id reference， id一般unique -->
+        <!-- 这里用class reference, 可以apply到多个element -->
+        <style>
+            h1 {
+                color: blue;
+            }
+
+            .li-ca { 
+                color: maroon;
+            } 
+
+            #table {
+                color: green;
+            }
+        </style>
+        
+        <div class="first">
+        first
+        </div>
+
+        <div class="li-ca2">
+            <ul>
+                <li>item1</li> <!-- ul/ol必须和li一起使用-->
+                    <a></a> decendent of ul
+                <li>item2</li> blah blah blah
+                <li>item3</li>
+                    <div class="child">
+                        child
+                        <div>
+                            <a class="grandchild" href="//www.w3schools.com/", target="_blank">grandchild</a>
+                    </div>
+                    </div> 
+            </ul>
+        </div> <!-- 这个会占满整行， 可以自定义高度-->
+        
+        <div class="li-ca">
+            <table id="table">
+                <tr>
+                    <th>Month</th>
+                    <th>Saving</th>
+                </tr>
+                <tr>
+                    <td>January</td>
+                    <td>$160</td>
+                </tr>
+            </table>
+                        
+            <ol start="99">
+                <li>item1</li>
+                <li>item2</li>
+            </ol>
+
+        </div>
+
+        
+        <article class="li-ca">article1</article> <!-- html5之后出现的，类似div的功能-->
+        <span class="li-ca">span1</span> <!-- span 浏览器打完字就停止了，不能自定义高度-->
+
+
+
+        <a href="https://www.w3schools.com/" target="_blank">click on</a> <!-- IMPORTANT tag: anchor: set link-->
+        <!-- href写网址，target="_blank" 打开新tab -->
+
+        <img src="img_gril.jpg" alt="Girl in a jacket" width="500" height = "600">
+        <!-- img是单tag，alt如果图片不render，会给出这行描述-->
+    </body>
+</html>
