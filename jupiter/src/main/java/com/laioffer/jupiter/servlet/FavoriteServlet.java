@@ -48,8 +48,11 @@ public class FavoriteServlet extends HttpServlet {
         try {
             connection = new MySQLConnection();
             itemMap = connection.getFavoriteItems(userId);
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().print(new ObjectMapper().writeValueAsString(itemMap));
+//            response.setContentType("application/json;charset=UTF-8");
+//            response.getWriter().print(new ObjectMapper().writeValueAsString(itemMap));
+
+            // 精简到util里
+            ServletUtil.writeItemMap(response, itemMap);
         } catch (MySQLException e) {
             throw new ServletException(e);
         } finally {

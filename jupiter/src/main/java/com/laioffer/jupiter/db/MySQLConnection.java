@@ -2,6 +2,7 @@ package com.laioffer.jupiter.db;
 
 import com.laioffer.jupiter.entity.Item;
 import com.laioffer.jupiter.entity.ItemType;
+import com.laioffer.jupiter.entity.User;
 import com.mysql.jdbc.Driver;
 
 import java.sql.*;
@@ -200,4 +201,51 @@ public class MySQLConnection {
         }
         return itemMap;
     }
+
+
+    // AUTHORIZATION
+    public String verifyLogin(String userId, String password) throws MySQLException {
+        if (conn == null) {
+            System.err.println("DB connection failed");
+            throw new MySQLException("Failed to connect to DB");
+        }
+
+        String name = "";
+        String sql = "SELECT first_name, last_name FROM users WHERE id = ? AND password = ?";
+        try {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, userId);
+            statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                name = rs.getString("first_name") + " " + rs.getString("last_name");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new MySQLException("Failed to verify user id and password from Database");
+        }
+        return name;
+    }
+
+    public boolean addUser (User user) throws MySQLException {
+        if (conn == null) {
+            System.err.println("DB connection failed");
+            throw new MySQLException("Failed to connect to DB");
+        }
+
+        String sql = "INSERT IGNORE INTO users VALUES(?,?,?,?)";
+        try {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, user.getUserId());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getFirstName());
+            statement.setString(4, user.getLastName());
+            return statement.executeUpdate()==1; // insert了几行就return几，这里我们只insert一行，成功就是1
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new MySQLException("Failed to verify user id and password from Database");
+        }
+    }
+
 }

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>HTML test</title>
-        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <link rel="stylesheet" type="text/css" href="mystyle.css"> <!--引入css file-->
     </head>
     <body>
         <header>
@@ -42,7 +42,7 @@
                     <div class="child">
                         child
                         <div>
-                            <a class="grandchild" href="//www.w3schools.com/", target="_blank">grandchild</a>
+                            <a class="grandchild" href="http://www.w3schools.com/", target="_blank">grandchild</a>
                     </div>
                     </div> 
             </ul>
@@ -78,5 +78,8 @@
 
         <img src="img_gril.jpg" alt="Girl in a jacket" width="500" height = "600">
         <!-- img是单tag，alt如果图片不render，会给出这行描述-->
+
+        <script src="main.js"></script> <!--引入javascript file, 一般都放body的最后面。HTML从上到下顺序执行-->
+        <!--为什么放后面？因为太早引入html的variable还没load-->
     </body>
 </html>

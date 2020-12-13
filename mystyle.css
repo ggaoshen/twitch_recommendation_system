@@ -12,14 +12,13 @@ css selector:
 selector1 selector2: 
 第一个variable里后代里所有满足第二个元素的内容 
 */
-
 .li-ca2 li {
     color: purple
 }
 
 /* 
 selector1 selector2: 
-第一个variable里后代里所有满足第二个元素的内容 
+第一个variable的儿子里所有满足第二个元素的内容 
 */
 .li-ca2 > ul > .child {
     color: orange
@@ -32,8 +31,9 @@ selector1 selector2:
 
 
 /* pseudo element */
-.grandchild::hover {
-    color: red
+.first::after {
+    content: " <- top layer"; 
+    color: brown
 }
 
 /* box 属性 */
