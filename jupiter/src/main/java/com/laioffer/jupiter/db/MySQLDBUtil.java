@@ -5,10 +5,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class MySQLDBUtil {
-    private static final String INSTANCE = "twitchdb.cxyvqpvyz2oj.us-west-2.rds.amazonaws.com"; // get from RDS: Endpoint属性
+    private static final String INSTANCE = "twitch-proj-instance.cxyvqpvyz2oj.us-west-2.rds.amazonaws.com"; // get from RDS: Endpoint属性
     // 如果使用local mysql db，INSTANCE = "localhost"
     private static final String PORT_NUM = "3306";
-    private static final String DB_NAME = "raw_twitch";
+    private static final String DB_NAME = "raw_twitch"; // 随便起什么名都行
 
     public static String getMySQLAddress() throws IOException {
         Properties prop = new Properties();

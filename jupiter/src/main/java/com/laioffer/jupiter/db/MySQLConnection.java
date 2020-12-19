@@ -240,6 +240,7 @@ public class MySQLConnection {
             statement.setString(2, user.getPassword());
             statement.setString(3, user.getFirstName());
             statement.setString(4, user.getLastName());
+
             return statement.executeUpdate()==1; // insert了几行就return几，这里我们只insert一行，成功就是1
 
         } catch (SQLException e) {

@@ -16,6 +16,7 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         ObjectMapper mapper = new ObjectMapper();
         User user = mapper.readValue(request.getReader(), User.class); // request.getReader()是request body的stream
         if (user == null) {
