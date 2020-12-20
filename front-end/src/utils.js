@@ -1,7 +1,8 @@
 // If you don't want to host your server code and client code together, you can 
 // pay AWS to host your server with HTTPS then config the api url endpoints like below
 // const SERVER_ORIGIN = '<Your server's url>'; 
-const SERVER_ORIGIN = '/jupiter';
+// const SERVER_ORIGIN = '/jupiter';
+const SERVER_ORIGIN = '';
  
 const loginUrl = `${SERVER_ORIGIN}/login`; // 对应后端api
  
@@ -12,7 +13,7 @@ export const login = (credential) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    credentials: 'include', // 用cookie存后端的session id， allow to set up cookie
+    credentials: 'include', // 和后端沟通带上cookie， allow to set up cookie。用cookie存后端的session id， 
     body: JSON.stringify(credential) // JSON.stringify() method converts a JavaScript object or value to a JSON string
   }).then((response) => { // promise的then method，成功以后处理response
     // fetch() -> return response -> then(response) 用前面function的return值作为input
